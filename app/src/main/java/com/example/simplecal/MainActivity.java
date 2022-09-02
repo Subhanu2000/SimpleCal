@@ -23,7 +23,12 @@ public class MainActivity extends AppCompatActivity {
         lblAnswer = findViewById(R.id.lblAnswer);
     }
 
+    //int answer = 0;
+
     public void calculate (View v){
+
+        String tag = v.getTag().toString();
+        lblAnswer.setText(tag);
 
         String  value1 = txtValue1.getText().toString();
         String  value2 = txtValue2.getText().toString();
@@ -31,7 +36,30 @@ public class MainActivity extends AppCompatActivity {
         Double x = Double.parseDouble(value1);
         Double y = Double.parseDouble(value2);
 
-        Double answer = (x+y);
+        double answer = 0;
+
+        switch (tag){
+            case "Sum" : answer = x+y; break;
+            case "Sub" : answer = x-y; break;
+            case "Mul" : answer = x*y; break;
+            case "Div" : answer = x/y; break;
+        }
+
+//        if (tag.equals("Sum")){
+//            answer = x+y;
+//        }
+//
+//        if (tag.equals("Sub")){
+//            answer = x-y;
+//        }
+//
+//        if (tag.equals("Mul")){
+//            answer = x*y;
+//        }
+//
+//        if (tag.equals("Div")){
+//            answer = x/y;
+//        }
 
 
         lblAnswer.setText(""+answer);
@@ -72,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
         Double answer = (x/y);
 
         lblAnswer.setText(""+answer);
-    } */
+    }*/
     public void resetcount (View v){
 
-        answer = 0;
+        int answer = 0;
 
         lblAnswer.setText(""+answer);
         txtValue1.setText("");
